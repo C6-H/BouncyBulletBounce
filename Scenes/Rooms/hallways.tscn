@@ -24,3 +24,5 @@ position = Vector2(-71, -40)
 [node name="Exit" parent="." unique_id=225898723 instance=ExtResource("4_l8l1v")]
 position = Vector2(88, -49)
 rotation = 1.5707964
+
+[connection signal="load_room" from="Exit" to="Game manager" method="_on_exit_load_room"]
