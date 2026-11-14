@@ -11,7 +11,7 @@ func _physics_process(delta: float) -> void:
 	if last_pos != position:
 		last_pos = position
 		look_at(last_pos)
-		rotate(PI - PI/6)
+		rotate(PI)
 	var collision = move_and_collide(velocity * delta)
 	
 	if collision:

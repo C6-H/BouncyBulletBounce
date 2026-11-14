@@ -42,9 +42,9 @@ func _process(delta: float) -> void:
 	if Input.is_action_just_released("Shoot") and charging:
 		charging = false
 		if elapsed_time >= 5.0:
-			bullet_speed = elapsed_time * 10
+			bullet_speed = elapsed_time * 100
 		else:
-			bullet_speed = 100
+			bullet_speed = 1000
 		Engine.time_scale = 1
 		elapsed_time = 0
 		
@@ -58,5 +58,6 @@ func shoot():
 	var bullet = bullet_scene.instantiate()
 	add_sibling(bullet)
 	bullet.transform = gun.global_transform
+	bullet.rotation = rotation
 	bullet.speed = bullet_speed
 	bullet.velocity = Vector2(cos(rotation + PI/2), sin(rotation + PI/2)) * bullet_speed
