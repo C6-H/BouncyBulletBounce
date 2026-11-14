@@ -1,4 +1,5 @@
 extends CharacterBody2D
+var bullet_scene = preload("res://Scenes/Bullet.tscn")
 
 
 const SPEED = 13500.0
@@ -10,9 +11,6 @@ var bullet_speed = 0
 var elapsed_time = 0.0
 
 func _physics_process(delta: float) -> void:
-
-	# Get the input direction and handle the movement/deceleration.
-	# As good practice, you should replace UI actions with custom gameplay actions.
 	var direction = Vector2(Input.get_axis("Left", "Right"), Input.get_axis("Up", "Down")).normalized()
 	if direction:
 		velocity = direction * SPEED * delta
@@ -24,6 +22,7 @@ func _physics_process(delta: float) -> void:
 
 
 func _process(delta: float) -> void:
+	
 	if Input.is_action_pressed("Shoot") and reload_timer.is_stopped():
 		charging = true
 	
@@ -31,7 +30,13 @@ func _process(delta: float) -> void:
 		elapsed_time += delta
 		Engine.time_scale = 0.5
 	
+<<<<<<< HEAD
+	if Input.is_action_just_released("Shoot") and reload_timer.is_stopped():
+		print("shoot")
+		shoot()
+=======
 	if Input.is_action_just_released("Shoot"):
+>>>>>>> dde798b99789bef092dc19d70fa544162b61f2f8
 		charging = false
 		if elapsed_time <= 2.5:
 			bullet_speed = elapsed_time * 5000
@@ -44,3 +49,9 @@ func _process(delta: float) -> void:
 	
 	look_at(get_global_mouse_position())
 	rotation_degrees -= 90
+
+func shoot():
+	var bullet = bullet_scene.instantiate()
+	add_sibling(bullet)
+	bullet.transform = Marker2D.global_transform
+	bullet.velocity = Marker2D.global_transform.x * bullet.speed

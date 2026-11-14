@@ -1,16 +1,17 @@
-[gd_scene format=3 uid="uid://bfptyeur76tdj"]
+[gd_scene format=3 uid="uid://dod2721qc8uf1"]
 
-[ext_resource type="Texture2D" uid="uid://b7r3q5np3ye2d" path="res://Assets/Bullet.png" id="1_gf172"]
+[ext_resource type="Script" uid="uid://cf1r0bseeym8c" path="res://Scenes/bullet.gd" id="1_oduel"]
+[ext_resource type="Texture2D" uid="uid://b7r3q5np3ye2d" path="res://Assets/Bullet.png" id="1_xjght"]
 
-[sub_resource type="CircleShape2D" id="CircleShape2D_22vlk"]
-radius = 2.0
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_v7ihv"]
+size = Vector2(5, 6)
 
-[node name="bullet" type="Area2D" unique_id=1175889443]
+[node name="Bullet" type="CharacterBody2D" unique_id=1850328363]
+script = ExtResource("1_oduel")
 
-[node name="Sprite2D" type="Sprite2D" parent="." unique_id=1143548166]
-texture_filter = 1
-texture = ExtResource("1_gf172")
+[node name="CollisionShape2D" type="CollisionShape2D" parent="." unique_id=1930637080]
+position = Vector2(-0.5, -1)
+shape = SubResource("RectangleShape2D_v7ihv")
 
-[node name="CollisionShape2D" type="CollisionShape2D" parent="." unique_id=1863115670]
-position = Vector2(0, -2)
-shape = SubResource("CircleShape2D_22vlk")
+[node name="Sprite2D" type="Sprite2D" parent="." unique_id=1747350223]
+texture = ExtResource("1_xjght")
