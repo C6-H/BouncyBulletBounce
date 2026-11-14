@@ -40,7 +40,6 @@ path_desired_distance = 2.0
 target_desired_distance = 32.0
 path_max_distance = 10.0
 path_postprocessing = 1
-debug_enabled = true
 
 [node name="PathTimer" type="Timer" parent="." unique_id=1492019986]
 autostart = true
