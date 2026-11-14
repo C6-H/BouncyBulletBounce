@@ -32,7 +32,6 @@ func _process(delta: float) -> void:
 		Engine.time_scale = 0.5
 	
 	if Input.is_action_just_released("Shoot"):
-		print("shoot")
 		charging = false
 		if elapsed_time <= 2.5:
 			bullet_speed = elapsed_time * 5000

@@ -10,24 +10,27 @@ radius = 5.0
 radius = 7.5
 
 [node name="Chicken" type="CharacterBody2D" unique_id=1013117429]
-position = Vector2(19, 15)
 script = ExtResource("1_jy3mo")
 
 [node name="Sprite2D" type="Sprite2D" parent="." unique_id=1879968423]
+rotation = -1.5707964
 texture = ExtResource("1_245eq")
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="." unique_id=1607419204]
-position = Vector2(-0.5, -1)
+position = Vector2(-1, 0.5)
 shape = SubResource("CircleShape2D_bpxdo")
 
 [node name="HurtBox" type="Area2D" parent="." unique_id=1129506690]
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="HurtBox" unique_id=2057034529]
-position = Vector2(-0.5, -1)
 shape = SubResource("CircleShape2D_3xx5r")
 
 [node name="walkTimer" type="Timer" parent="." unique_id=686061099]
 wait_time = 2.0
 one_shot = true
 
+[node name="ShootTimer" type="Timer" parent="." unique_id=1442367264]
+wait_time = 2.0
+
 [connection signal="timeout" from="walkTimer" to="." method="_on_walk_timer_timeout"]
+[connection signal="timeout" from="ShootTimer" to="." method="_on_shoot_timer_timeout"]
