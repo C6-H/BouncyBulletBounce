@@ -19,8 +19,5 @@ layer_1/tile_data = PackedInt32Array(-458760, 65536, 0, -524281, 196608, 0, 3932
 unique_name_in_owner = true
 position = Vector2(0, -113)
 
-[node name="Camera2D" type="Camera2D" parent="Player" unique_id=1720566882]
-zoom = Vector2(3, 3)
-
 [node name="Chicken" parent="." unique_id=1013117429 instance=ExtResource("3_rvn0d")]
 position = Vector2(-42, 3)
