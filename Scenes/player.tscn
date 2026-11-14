@@ -35,3 +35,5 @@ one_shot = true
 
 [node name="Camera2D" type="Camera2D" parent="." unique_id=914125705]
 zoom = Vector2(4, 4)
+
+[node name="Gun" type="Marker2D" parent="." unique_id=1911579320]
