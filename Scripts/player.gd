@@ -30,9 +30,13 @@ func _process(delta: float) -> void:
 		elapsed_time += delta
 		Engine.time_scale = 0.5
 	
+<<<<<<< HEAD
 	if Input.is_action_just_released("Shoot") and reload_timer.is_stopped():
 		print("shoot")
 		shoot()
+=======
+	if Input.is_action_just_released("Shoot"):
+>>>>>>> dde798b99789bef092dc19d70fa544162b61f2f8
 		charging = false
 		if elapsed_time <= 2.5:
 			bullet_speed = elapsed_time * 5000
