@@ -79,14 +79,14 @@ func ray_cast(from: Vector2, to: Vector2):
 	
 func aimF():
 	aim.points.clear()
-	var from_pos = position
-	while rotation < 0:
-		rotation += 2*PI
-	var v_rotation = rotation
-	var to_pos = 1000 * Vector2(cos(v_rotation), sin(v_rotation))
+	var from_pos = global_position
+	
+	var v_rotation = rotation - PI/4
+	var to_pos = global_position + 1000 * Vector2(cos(v_rotation), sin(v_rotation))
 	var points = []
-	for i in range(max_bounces - 1):
+	for i in range(max_bounces):
 		points.append(ray_cast(from_pos, to_pos).get("position"))
+		print(ray_cast(from_pos, to_pos).get("position"))
 		from_pos = to_pos
 		to_pos = 1000 * Vector2(cos(v_rotation + PI/2), sin(v_rotation + PI/2))
 	aim.points = points
