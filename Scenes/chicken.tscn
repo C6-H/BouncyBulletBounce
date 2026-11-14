@@ -32,5 +32,19 @@ one_shot = true
 [node name="ShootTimer" type="Timer" parent="." unique_id=1442367264]
 wait_time = 2.0
 
+[node name="Line2D" type="Line2D" parent="." unique_id=2021506703]
+points = PackedVector2Array(0, 0)
+
+[node name="NavigationAgent2D" type="NavigationAgent2D" parent="." unique_id=1696513741]
+path_desired_distance = 2.0
+target_desired_distance = 32.0
+path_max_distance = 10.0
+path_postprocessing = 1
+debug_enabled = true
+
+[node name="PathTimer" type="Timer" parent="." unique_id=1492019986]
+autostart = true
+
 [connection signal="timeout" from="walkTimer" to="." method="_on_walk_timer_timeout"]
 [connection signal="timeout" from="ShootTimer" to="." method="_on_shoot_timer_timeout"]
+[connection signal="timeout" from="PathTimer" to="." method="_on_path_timer_timeout"]
