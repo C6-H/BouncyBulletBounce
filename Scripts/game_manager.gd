@@ -1,6 +1,6 @@
 extends Node
 
-const ROOMS = ["res://Scenes/Rooms/l_shaped_room_1.tscn", "res://Scenes/Rooms/square_room_1.tscn"]
+const ROOMS = ["res://Scenes/Rooms/l_shaped_room_1.tscn", "res://Scenes/Rooms/square_room_1.tscn", ]
 const SPAWN = "res://Scenes/Rooms/spawn_room.tscn"
 
 
@@ -8,7 +8,7 @@ var score = 0
 var played_rooms = []
 # Called when the node enters the scene tree for the first time.
 func _ready() -> void:
-	pass # Replace with function body.
+	next_room()
 
 
 # Called every frame. 'delta' is the elapsed time since the previous frame.
