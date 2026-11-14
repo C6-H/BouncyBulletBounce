@@ -32,23 +32,13 @@ func _process(delta: float) -> void:
 			elapsed_time += delta
 		Engine.time_scale = 0.5
 	
-<<<<<<< HEAD
 
 
-	if Input.is_action_just_released("Shoot") and reload_timer.timeout:
-		print("shoot")
-		shoot()
-
-	if Input.is_action_just_released("Shoot") and reload_timer.is_stopped():
-		print("shoot")
-		shoot()
 	
-=======
 	if Input.is_action_just_released("Shoot") and reload_timer.is_stopped():
 		print("shoot")
 		shoot()
 
->>>>>>> 76084ac0c77a665bef784dc853daea0b784f9360
 	if Input.is_action_just_released("Shoot"):
 		charging = false
 		if elapsed_time >= 5.0:
