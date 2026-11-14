@@ -1,7 +1,7 @@
 extends CharacterBody2D
 
 
-const SPEED = 900.0
+const SPEED = 13500.0
 
 var charging = false
 @onready var reload_timer: Timer = $"Reload timer"
@@ -34,7 +34,11 @@ func _process(delta: float) -> void:
 	if Input.is_action_just_released("Shoot"):
 		print("shoot")
 		charging = false
-		bullet_speed = elapsed_time * 100
+		if elapsed_time <= 2.5:
+			bullet_speed = elapsed_time * 5000
+		else:
+			bullet_speed = 25000
+		Engine.time_scale = 1
 		
 		reload_timer.start()
 	
