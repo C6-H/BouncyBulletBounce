@@ -1,3 +1,8 @@
 [gd_scene format=3 uid="uid://b63k4tluqr4mc"]
 
+[ext_resource type="Script" uid="uid://bjh0rpg11tcxx" path="res://Scripts/game_manager.gd" id="1_ebmjs"]
+
 [node name="Game" type="Node2D" unique_id=716044547]
+
+[node name="Game manager" type="Node" parent="." unique_id=1033943723]
+script = ExtResource("1_ebmjs")
