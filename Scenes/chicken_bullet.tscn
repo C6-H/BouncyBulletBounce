@@ -1,0 +1,18 @@
+[gd_scene format=3 uid="uid://6r15a5ny5d4k"]
+
+[ext_resource type="Script" uid="uid://c2aw8dw80r011" path="res://Scripts/chicken_bullet.gd" id="1_8mov2"]
+[ext_resource type="Texture2D" uid="uid://hqd8hisryvfy" path="res://Assets/ChickenSeed.png" id="1_ysnst"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_bpxdo"]
+size = Vector2(1, 2)
+
+[node name="ChickenBullet" type="Area2D" unique_id=1552481316]
+script = ExtResource("1_8mov2")
+
+[node name="Sprite2D" type="Sprite2D" parent="." unique_id=2035466391]
+texture = ExtResource("1_ysnst")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="." unique_id=120939443]
+shape = SubResource("RectangleShape2D_bpxdo")
+
+[connection signal="body_entered" from="." to="." method="_on_body_entered"]

@@ -1,0 +1,33 @@
+[gd_scene format=3 uid="uid://bivl0byoxfj5b"]
+
+[ext_resource type="Texture2D" uid="uid://bc03nuwfhj6bm" path="res://Assets/Chicken.png" id="1_245eq"]
+[ext_resource type="Script" uid="uid://0hyn52q4k3dt" path="res://Scripts/chicken.gd" id="1_jy3mo"]
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_bpxdo"]
+radius = 5.0
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_3xx5r"]
+radius = 7.5
+
+[node name="Chicken" type="CharacterBody2D" unique_id=1013117429]
+position = Vector2(19, 15)
+script = ExtResource("1_jy3mo")
+
+[node name="Sprite2D" type="Sprite2D" parent="." unique_id=1879968423]
+texture = ExtResource("1_245eq")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="." unique_id=1607419204]
+position = Vector2(-0.5, -1)
+shape = SubResource("CircleShape2D_bpxdo")
+
+[node name="HurtBox" type="Area2D" parent="." unique_id=1129506690]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="HurtBox" unique_id=2057034529]
+position = Vector2(-0.5, -1)
+shape = SubResource("CircleShape2D_3xx5r")
+
+[node name="walkTimer" type="Timer" parent="." unique_id=686061099]
+wait_time = 2.0
+one_shot = true
+
+[connection signal="timeout" from="walkTimer" to="." method="_on_walk_timer_timeout"]
