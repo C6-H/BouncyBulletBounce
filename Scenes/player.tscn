@@ -32,3 +32,8 @@ debug_color = Color(0.989577, 0, 0.29427183, 0.41960785)
 [node name="Reload timer" type="Timer" parent="." unique_id=1845081062]
 wait_time = 3.0
 one_shot = true
+ignore_time_scale = true
+
+[node name="Gun" type="Marker2D" parent="." unique_id=1410207825]
+position = Vector2(1, 18)
+rotation = 1.5711385
