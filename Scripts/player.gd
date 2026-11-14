@@ -7,7 +7,7 @@ const SPEED = 13500.0
 
 var charging = false
 @onready var reload_timer: Timer = $"Reload timer"
-var bullet_speed = 0
+var bullet_speed = 1.0
 
 var elapsed_time = 0.0
 
@@ -39,12 +39,12 @@ func _process(delta: float) -> void:
 		print("shoot")
 		shoot()
 
-	if Input.is_action_just_released("Shoot"):
+	if Input.is_action_just_released("Shoot") and charging:
 		charging = false
 		if elapsed_time >= 5.0:
-			bullet_speed = elapsed_time * 500
+			bullet_speed = elapsed_time * 10
 		else:
-			bullet_speed = 2500
+			bullet_speed = 100
 		Engine.time_scale = 1
 		elapsed_time = 0
 		
@@ -58,4 +58,5 @@ func shoot():
 	var bullet = bullet_scene.instantiate()
 	add_sibling(bullet)
 	bullet.transform = gun.global_transform
-	bullet.velocity = gun.global_transform.x * bullet_speed
+	bullet.speed = bullet_speed
+	bullet.velocity = Vector2(cos(rotation + PI/2), sin(rotation + PI/2)) * bullet_speed

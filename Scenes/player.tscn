@@ -37,3 +37,5 @@ one_shot = true
 zoom = Vector2(4, 4)
 
 [node name="Gun" type="Marker2D" parent="." unique_id=1911579320]
+position = Vector2(0, 1)
+rotation = 1.5707964

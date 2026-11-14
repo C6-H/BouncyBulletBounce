@@ -3,19 +3,27 @@
 [ext_resource type="Script" uid="uid://cf1r0bseeym8c" path="res://Scripts/bullet.gd" id="1_14k46"]
 [ext_resource type="Texture2D" uid="uid://b7r3q5np3ye2d" path="res://Assets/Bullet.png" id="1_xjght"]
 
-[sub_resource type="RectangleShape2D" id="RectangleShape2D_v7ihv"]
-size = Vector2(4.9999905, 6)
+[sub_resource type="CapsuleShape2D" id="CapsuleShape2D_si4lm"]
+radius = 1.9999945
+height = 3.999989
 
 [node name="Bullet" type="CharacterBody2D" unique_id=1850328363]
 rotation = -1.5727693
+collision_layer = 4
+collision_mask = 4
 script = ExtResource("1_14k46")
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="." unique_id=1930637080]
-position = Vector2(0.4960531, 1.999997)
-scale = Vector2(1.0000002, 1.0000002)
-shape = SubResource("RectangleShape2D_v7ihv")
+position = Vector2(4.7683716e-07, -2.3841858e-07)
+scale = Vector2(1.0000005, 1.0000005)
+shape = SubResource("CapsuleShape2D_si4lm")
 
 [node name="Sprite2D" type="Sprite2D" parent="." unique_id=1747350223]
 texture_filter = 1
 rotation = -3.1437325
 texture = ExtResource("1_xjght")
+
+[node name="CollisionCooldown" type="Timer" parent="." unique_id=801060945]
+wait_time = 0.1
+
+[connection signal="timeout" from="CollisionCooldown" to="." method="_on_collision_cooldown_timeout"]
