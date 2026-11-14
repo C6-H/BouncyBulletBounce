@@ -1,7 +1,7 @@
 [gd_scene format=3 uid="uid://vor3wx5ra4un"]
 
 [ext_resource type="Texture2D" uid="uid://qtacqv65jtlj" path="res://Assets/ExitDoor.png" id="1_1lkl7"]
-[ext_resource type="Script" uid="uid://8dak5x8eoook" path="res://Scenes/gate.gd" id="1_hn85u"]
+[ext_resource type="Script" uid="uid://8dak5x8eoook" path="res://Scripts/gate.gd" id="1_hn85u"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_v7ihv"]
 size = Vector2(32, 4)
@@ -73,3 +73,5 @@ sprite_frames = SubResource("SpriteFrames_22vlk")
 animation = &"Open"
 frame = 1
 frame_progress = 0.19788419
+
+[connection signal="body_entered" from="." to="." method="_on_body_entered"]
