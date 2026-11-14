@@ -37,7 +37,6 @@ func _process(delta: float) -> void:
 		shoot()
 
 	if Input.is_action_just_released("Shoot"):
->>>>>>> 5cfa4fa413b672a1a045cfeef2e3eda52d388ff8
 		charging = false
 		if elapsed_time >= 5.0:
 			bullet_speed = elapsed_time * 500
