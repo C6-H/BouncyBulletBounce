@@ -1,7 +1,7 @@
 extends CharacterBody2D
 @onready var sprite_2d: Sprite2D = $Sprite2D
 
-var max_bounces = 30
+var max_bounces = 3
 var bounces = 0
 var speed: float = 10
 var collidable = true
