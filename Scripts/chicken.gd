@@ -5,8 +5,11 @@ const SIGHT = 300
 @onready var player = %Player
 @onready var walk_timer: Timer = $walkTimer
 @onready var shoot_timer: Timer = $ShootTimer
+@onready var line_2d: Line2D = $Line2D
+@onready var navigation_agent_2d: NavigationAgent2D = $NavigationAgent2D
+@onready var path_timer: Timer = $PathTimer
 
-const SPEED = 1.0
+const SPEED = 300.0
 
 var player_distance: float
 var seen: bool = false
@@ -14,26 +17,40 @@ var attitude: int = 1
 
 # Called when the node enters the scene tree for the first time.
 func _ready() -> void:
-	pass # Replace with function body.
+	navigation_agent_2d.target_position = player.position
 
+func _physics_process(_delta: float) -> void:
+	if not get_world_2d().direct_space_state.intersect_ray(PhysicsRayQueryParameters2D.create(global_position, player.global_position)).get("collider") == player:
+		if !navigation_agent_2d.is_target_reached():
+			var nav_point_direction = to_local(navigation_agent_2d.get_next_path_position())
+			velocity = nav_point_direction * SPEED * get_physics_process_delta_time()
+			attitude = 1
+		else:
+			velocity = Vector2(0, 0)
+			attitude = 2
+	else:
+		velocity = Vector2(0, 0)
+		attitude = 2
+	
+	move_and_slide()
 
 # Called every frame. 'delta' is the elapsed time since the previous frame.
 func _process(_delta: float) -> void:
 	look_at(player.position)
 	sight_check()
+	print(attitude)
 	if seen:
 		if attitude == 1:
 			walk()
 		if attitude == 2:
 			if shoot_timer.is_stopped():
 				shoot_timer.start()
-				print("start")
 		else:
 			shoot_timer.stop()
-			print("stop")
-			print(attitude)
 		
-		
+
+func walk():
+	pass
 func sight_check():
 	var to_player_vector = player.position - global_position
 	player_distance = sqrt(to_player_vector.x ** 2 + to_player_vector.y ** 2)
@@ -50,41 +67,15 @@ func shoot():
 	var y = sin(rotation)
 	bullet.direction = Vector2(x, y)
 	get_parent().add_child(bullet)
-	
-func walk():
-	var space = get_world_2d().direct_space_state
-	var ray = PhysicsRayQueryParameters2D.create(global_position, player.position)
-	var data = space.intersect_ray(ray)
-	var walk_goal: Vector2 = player.position
-	if not data.get("collider") == player:
-		rotation -= 90
-		var object_rel = data.get("collider").global_position - global_position
-		var radius = sqrt(object_rel.x ** 2 + object_rel.y ** 2)
-		for i in range(90):
-			var x = cos(deg_to_rad(i - 90))
-			var y = sin(deg_to_rad(i - 90))
-			var point_to_check = radius * Vector2(x, y)
-			ray = PhysicsRayQueryParameters2D.create(point_to_check, player.position)
-			data = space.intersect_ray(ray)
-			if data.get("collider") == player:
-				walk_goal == point_to_check
-			else:
-				x = cos(-deg_to_rad(i - 90))
-				y = sin(-deg_to_rad(i - 90))
-				point_to_check = radius * Vector2(x, y)
-				ray = PhysicsRayQueryParameters2D.create(point_to_check, player.position)
-				data = space.intersect_ray(ray)
-				if data.get("collider") == player:
-					walk_goal == point_to_check
-		global_position += walk_goal * SPEED * get_physics_process_delta_time()
-	else:
-		attitude = 2
-func _on_walk_timer_timeout() -> void:
-	if randi_range(0, 1) == 1:
-		attitude = 2
+
 		
 
 
 func _on_shoot_timer_timeout() -> void:
 	shoot()
-	print("Shoot")
+
+
+func _on_path_timer_timeout() -> void:
+	if navigation_agent_2d.target_position != player.position:
+		navigation_agent_2d.target_position = player.position
+	path_timer.start()

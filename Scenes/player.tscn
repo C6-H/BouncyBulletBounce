@@ -32,3 +32,6 @@ debug_color = Color(0.989577, 0, 0.29427183, 0.41960785)
 [node name="Reload timer" type="Timer" parent="." unique_id=1845081062]
 wait_time = 3.0
 one_shot = true
+
+[node name="Camera2D" type="Camera2D" parent="." unique_id=914125705]
+zoom = Vector2(4, 4)
