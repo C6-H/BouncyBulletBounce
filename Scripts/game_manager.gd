@@ -1,8 +1,9 @@
 extends Node
 
-const ROOMS = ["res://Scenes/Rooms/l_shaped_room_1.tscn", "res://Scenes/Rooms/square_room_1.tscn", ]
+const ROOMS = ["res://Scenes/Rooms/l_shaped_room_1.tscn", "res://Scenes/Rooms/square_room_1.tscn", "res://Scenes/Rooms/hallways.tscn"]
 const SPAWN = "res://Scenes/Rooms/spawn_room.tscn"
 
+signal opengate
 
 var score = 0
 var played_rooms = []
@@ -20,4 +21,5 @@ func next_room():
 	while next_tag in played_rooms or next_tag == -1:
 		next_tag = randi_range(0, len(ROOMS))
 	
-	played_rooms.append(next_tag)
+	if len(played_rooms) < len(ROOMS):
+		played_rooms.append(next_tag)
