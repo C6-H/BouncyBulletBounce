@@ -1,5 +1,6 @@
 extends CharacterBody2D
 var bullet_scene = preload("res://Scenes/Bullet.tscn")
+@onready var gun: Marker2D = $Gun
 
 
 const SPEED = 13500.0
@@ -27,20 +28,23 @@ func _process(delta: float) -> void:
 		charging = true
 	
 	if charging == true:
-		elapsed_time += delta
+		if elapsed_time < 5.0:
+			elapsed_time += delta
 		Engine.time_scale = 0.5
 	
 	if Input.is_action_just_released("Shoot") and reload_timer.is_stopped():
 		print("shoot")
 		shoot()
-	if Input.is_action_just_released("Shoot"):
 
+	if Input.is_action_just_released("Shoot"):
+>>>>>>> 5cfa4fa413b672a1a045cfeef2e3eda52d388ff8
 		charging = false
-		if elapsed_time <= 2.5:
-			bullet_speed = elapsed_time * 5000
+		if elapsed_time >= 5.0:
+			bullet_speed = elapsed_time * 500
 		else:
-			bullet_speed = 25000
+			bullet_speed = 2500
 		Engine.time_scale = 1
+		elapsed_time = 0
 		
 		reload_timer.start()
 	
@@ -51,5 +55,5 @@ func _process(delta: float) -> void:
 func shoot():
 	var bullet = bullet_scene.instantiate()
 	add_sibling(bullet)
-	bullet.transform = Marker2D.global_transform
-	bullet.velocity = Marker2D.global_transform.x * bullet.speed
+	bullet.transform = gun.global_transform
+	bullet.velocity = gun.global_transform.x * bullet_speed

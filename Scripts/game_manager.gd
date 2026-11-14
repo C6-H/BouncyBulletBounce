@@ -12,10 +12,10 @@ func _ready() -> void:
 
 
 # Called every frame. 'delta' is the elapsed time since the previous frame.
-func _process(delta: float) -> void:
+func _process(_delta: float) -> void:
 	pass
 
-func next_room():#
+func next_room():
 	var next_tag = -1
 	while next_tag in played_rooms or next_tag == -1:
 		next_tag = randi_range(0, len(ROOMS))
