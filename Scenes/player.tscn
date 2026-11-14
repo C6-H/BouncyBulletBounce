@@ -53,4 +53,4 @@ offset_right = 19.0
 offset_bottom = 5.0
 
 [node name="aim" type="Line2D" parent="." unique_id=734032842]
-width = 4.0
+width = 2.0
