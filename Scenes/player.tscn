@@ -3,6 +3,7 @@
 [ext_resource type="Script" uid="uid://dwkqrcmt64agx" path="res://Scripts/player.gd" id="1_v0iea"]
 [ext_resource type="Texture2D" uid="uid://dlgs0pp8jj641" path="res://Assets/Player.png" id="2_cvnsp"]
 [ext_resource type="Shader" uid="uid://bv84qusjdb10y" path="res://Shaders/ReloadBar.gdshader" id="3_6t5aa"]
+[ext_resource type="Shader" uid="uid://d0hboyme45bxe" path="res://Shaders/player.gdshader" id="4_vgqql"]
 
 [sub_resource type="CircleShape2D" id="CircleShape2D_22vlk"]
 radius = 11.045361
@@ -13,6 +14,12 @@ radius = 8.0
 [sub_resource type="ShaderMaterial" id="ShaderMaterial_cvnsp"]
 shader = ExtResource("3_6t5aa")
 shader_parameter/height = 0.0
+
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_6t5aa"]
+shader = ExtResource("4_vgqql")
+
+[sub_resource type="CanvasTexture" id="CanvasTexture_vgqql"]
+specular_color = Color(0.38431373, 0.5568628, 1, 1)
 
 [node name="Player" type="CharacterBody2D" unique_id=84064236]
 z_index = 1
@@ -53,4 +60,12 @@ offset_right = 19.0
 offset_bottom = 5.0
 
 [node name="aim" type="Line2D" parent="." unique_id=734032842]
-width = 2.0
+material = SubResource("ShaderMaterial_6t5aa")
+width = 4.0
+
+[node name="RayCast2D" type="RayCast2D" parent="." unique_id=2078952483]
+
+[node name="GPUParticles2D" type="GPUParticles2D" parent="." unique_id=956336644]
+position = Vector2(0, 16)
+amount = 100
+texture = SubResource("CanvasTexture_vgqql")
