@@ -12,6 +12,6 @@ func _physics_process(delta: float) -> void:
 	var collision = move_and_collide(velocity)
 	if collision:
 		if collision.get("collider") == %Player:
-			emit_signal("kill_player")
+			$"../../Game manager".kill_player()
 		queue_free()
 		

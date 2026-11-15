@@ -9,6 +9,7 @@ var played_rooms = []
 var save_path = "res://other/save_data/Save.tres"
 var save: Dictionary
 var save_data: FileAccess
+var max_bounces: int
 @onready var gate = %Gate
 @onready var chickens = %Chickens
 @onready var player: CharacterBody2D = $"../Player"
@@ -20,7 +21,8 @@ func _on_main_menu_startgame():
 	get_tree().change_scene_to_file("res://Scenes/Rooms/spawn_room.tscn")
 	save = {
 	save_score = 0,
-	save_played_rooms = 0
+	save_played_rooms = 0,
+	max_bounce = 0
 	}
 
 func _ready() -> void:
@@ -44,18 +46,20 @@ func next_room():
 	return next_tag
 
 func _process(delta: float) -> void:
+	if player:
+		player.max_bounces = AutoLoad.max_bounces
 	if chickens:
-		print(chickens.get_child_count())
-		print(chickens.get_children())
 		if chickens.get_child_count() == 0:
 			gate.openUp()
 
-
+func kill_player():
+	AutoLoad.max_bounces = AutoLoad.max_bounces + 1
+	get_tree().change_scene_to_file("res://Scenes/Rooms/spawn_room.tscn")
 
 func _on_gate_load_room():
-	var save = {
-		save_score = score,
-		save_played_rooms = played_rooms
+	save = {
+		"save_score": score,
+		"save_played_rooms" : played_rooms
 	}
 	var save_file = FileAccess.open(save_path, FileAccess.WRITE)
 	save_file.store_var(save)
