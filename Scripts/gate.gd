@@ -2,14 +2,17 @@ extends Area2D
 
 @onready var animated_sprite_2d: AnimatedSprite2D = $AnimatedSprite2D
 @onready var collision_shape_2d: CollisionShape2D = $CollisionShape2D
-
+@export var frame = 0
 var open = false
 signal load_room
 
 # Called when the node enters the scene tree for the first time.
 func _ready() -> void:
-	animated_sprite_2d.play("Open")
+	animated_sprite_2d.frame = frame
 
+
+func openUp():
+	animated_sprite_2d.play("Open")
 
 # Called every frame. 'delta' is the elapsed time since the previous frame.
 func _process(delta: float) -> void:
@@ -27,6 +30,5 @@ func _process(delta: float) -> void:
 
 
 func _on_body_entered(body: Node2D) -> void:
-	if not body is TileMap:
+	if not body is TileMap and open:
 		emit_signal("load_room")
-		print("leave")
