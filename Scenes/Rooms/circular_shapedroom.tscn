@@ -7,9 +7,9 @@
 [ext_resource type="PackedScene" uid="uid://dd3ipkork83ik" path="res://Scenes/game_manager.tscn" id="5_y6awn"]
 
 [sub_resource type="NavigationPolygon" id="NavigationPolygon_87mv8"]
-vertices = PackedVector2Array(188.17969, -2.6171875, 189.8125, 35, 117.13281, 106.796875, 116.328125, 105.140625, 109.72656, 39.921875, 111.10156, -4.1015625, -5.5390625, -64.140625, -118.60156, 70.296875, -157.77344, 30.15625, -156.21094, 1.28125, -2.7890625, -156, -2.59375, 189.1875, 8, 151, 36.71875, 151, 35.742188, 187.1875, 32.09375, 190.79688, 69.21094, -61.84375, 31.90625, -156, 8, 102.78125, 62.546875, 45.46875, 18.273438, 34.867188, 34.21875, 18.90625, -66.109375, 124.10156)
-polygons = Array[PackedInt32Array]([PackedInt32Array(0, 1, 2, 3, 4, 5), PackedInt32Array(6, 7, 8, 9, 10), PackedInt32Array(11, 12, 13, 14, 15), PackedInt32Array(16, 6, 10, 17), PackedInt32Array(16, 17, 0, 5), PackedInt32Array(4, 3, 18, 19), PackedInt32Array(20, 21, 19, 18, 22), PackedInt32Array(11, 22, 18, 12)])
-outlines = Array[PackedVector2Array]([PackedVector2Array(-166, -3, -7, -166, 36, -166, 198, -7, 200, 39, 36, 201, -7, 199, -168, 34), PackedVector2Array(101, -1, 64, -52, -1, -54, -112, 78, -76, 120, 11, 28, 34, 5, 66, 35, 100, 31), PackedVector2Array(61, 172, 79, 156, 110, 115, 18, 113, 18, 141, 47, 141, 46, 178)])
+vertices = PackedVector2Array(177.11719, 24.953125, 118.52344, 91.75, 116.84375, 89.22656, 109.72656, 39.921875, 111.10156, -4.1015625, 186.57031, -4.1875, -5.5390625, -64.140625, -118.60156, 70.296875, -157.77344, 30.15625, -156.21094, 1.28125, -2.7890625, -156, -2.59375, 189.1875, 8, 151, 36.71875, 151, 35.773438, 186.09375, 31.648438, 190.78125, 69.21094, -61.84375, 31.90625, -156, 8, 104.28906, 62.546875, 45.46875, 18.273438, 34.867188, 34.21875, 18.90625, -66.109375, 124.10156)
+polygons = Array[PackedInt32Array]([PackedInt32Array(0, 1, 2, 3, 4, 5), PackedInt32Array(6, 7, 8, 9, 10), PackedInt32Array(11, 12, 13, 14, 15), PackedInt32Array(16, 6, 10, 17), PackedInt32Array(16, 17, 5, 4), PackedInt32Array(3, 2, 18, 19), PackedInt32Array(20, 21, 19, 18, 22), PackedInt32Array(11, 22, 18, 12)])
+outlines = Array[PackedVector2Array]([PackedVector2Array(-166, -3, -7, -166, 36, -166, 198, -7, 186, 30, 36, 201, -7, 199, -168, 34), PackedVector2Array(101, -1, 64, -52, -1, -54, -112, 78, -76, 120, 11, 28, 34, 5, 66, 35, 100, 31), PackedVector2Array(61, 172, 79, 156, 112, 100, 18, 113, 18, 141, 47, 141, 46, 178)])
 
 [node name="platform" type="Node2D" unique_id=799744876]
 
@@ -34,18 +34,22 @@ position = Vector2(16, 212)
 [node name="NavigationRegion2D" type="NavigationRegion2D" parent="." unique_id=378927834]
 navigation_polygon = SubResource("NavigationPolygon_87mv8")
 
-[node name="Chicken" parent="." unique_id=1013117429 instance=ExtResource("5_a5rp4")]
-position = Vector2(1, -114)
-rotation = -3.7943459
+[node name="Chickens" type="Node2D" parent="." unique_id=1244845758]
+unique_name_in_owner = true
 
-[node name="Chicken2" parent="." unique_id=1727198134 instance=ExtResource("5_a5rp4")]
+[node name="Chicken" parent="Chickens" unique_id=1013117429 instance=ExtResource("5_a5rp4")]
+position = Vector2(1, -114)
+rotation = 2.4888394
+scale = Vector2(0.99999994, 0.99999994)
+
+[node name="Chicken2" parent="Chickens" unique_id=1727198134 instance=ExtResource("5_a5rp4")]
 position = Vector2(105, 73)
 rotation = -0.74700093
 
-[node name="Chicken3" parent="." unique_id=1716918142 instance=ExtResource("5_a5rp4")]
+[node name="Chicken3" parent="Chickens" unique_id=1716918142 instance=ExtResource("5_a5rp4")]
 position = Vector2(113, -41)
 rotation = -2.4260077
 
-[node name="Chicken4" parent="." unique_id=1498860824 instance=ExtResource("5_a5rp4")]
+[node name="Chicken4" parent="Chickens" unique_id=1498860824 instance=ExtResource("5_a5rp4")]
 position = Vector2(-31, 126)
 rotation = -1.3072516

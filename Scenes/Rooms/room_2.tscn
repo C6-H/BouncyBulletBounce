@@ -25,28 +25,12 @@ layer_1/tile_data = PackedInt32Array(-327676, 196608, 0, 262148, 196608, 2, 3276
 unique_name_in_owner = true
 position = Vector2(216, 390)
 
-[node name="Chicken" parent="." unique_id=1013117429 instance=ExtResource("3_on05m")]
-position = Vector2(267, -367)
-rotation = -4.0439277
-
 [node name="Label" type="Label" parent="." unique_id=1409115895]
 offset_left = 74.0
 offset_top = -12.0
 offset_right = 193.0
 offset_bottom = 11.0
 text = "PICK ONE PATH"
-
-[node name="Chicken2" parent="." unique_id=1648150915 instance=ExtResource("3_on05m")]
-position = Vector2(157, -320)
-rotation = 0.37350047
-
-[node name="Chicken3" parent="." unique_id=210831095 instance=ExtResource("3_on05m")]
-position = Vector2(382, -154)
-rotation = -1.6179202
-
-[node name="Chicken4" parent="." unique_id=1260901506 instance=ExtResource("3_on05m")]
-position = Vector2(239, 363)
-rotation = -1.2444198
 
 [node name="Player" parent="." unique_id=84064236 instance=ExtResource("4_n7ha0")]
 unique_name_in_owner = true
@@ -58,3 +42,23 @@ position = Vector2(1, 0)
 navigation_polygon = SubResource("NavigationPolygon_mpawn")
 
 [node name="Game manager" parent="." unique_id=312203782 instance=ExtResource("5_on05m")]
+
+[node name="Chickens" type="Node2D" parent="." unique_id=1872298930]
+unique_name_in_owner = true
+
+[node name="Chicken2" parent="Chickens" unique_id=1648150915 instance=ExtResource("3_on05m")]
+position = Vector2(157, -320)
+rotation = 0.37350047
+scale = Vector2(0.99999994, 0.99999994)
+
+[node name="Chicken3" parent="Chickens" unique_id=210831095 instance=ExtResource("3_on05m")]
+position = Vector2(382, -154)
+rotation = -1.6179202
+
+[node name="Chicken4" parent="Chickens" unique_id=1260901506 instance=ExtResource("3_on05m")]
+position = Vector2(239, 363)
+rotation = -1.2444198
+
+[node name="Chicken" parent="Chickens" unique_id=1013117429 instance=ExtResource("3_on05m")]
+position = Vector2(267, -367)
+rotation = 2.2392576
