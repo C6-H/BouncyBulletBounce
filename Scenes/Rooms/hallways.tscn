@@ -29,6 +29,7 @@ position = Vector2(88, -49)
 rotation = 1.5707964
 
 [node name="Chickens" type="Node2D" parent="." unique_id=1784424011]
+unique_name_in_owner = true
 
 [node name="Chicken" parent="Chickens" unique_id=1013117429 instance=ExtResource("5_l8l1v")]
 position = Vector2(60, -88)
