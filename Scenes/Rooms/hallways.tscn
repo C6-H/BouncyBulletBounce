@@ -4,6 +4,7 @@
 [ext_resource type="PackedScene" uid="uid://nb8tcmky3mah" path="res://Scenes/player.tscn" id="2_7wedp"]
 [ext_resource type="PackedScene" uid="uid://dd3ipkork83ik" path="res://Scenes/game_manager.tscn" id="3_f0bfi"]
 [ext_resource type="PackedScene" uid="uid://vor3wx5ra4un" path="res://Scenes/gate.tscn" id="4_l8l1v"]
+[ext_resource type="PackedScene" uid="uid://bivl0byoxfj5b" path="res://Scenes/chicken.tscn" id="5_l8l1v"]
 
 [node name="Hallways" type="Node2D" unique_id=492831470]
 
@@ -17,7 +18,8 @@ layer_1/name = "Walls"
 layer_1/tile_data = PackedInt32Array(393209, 65536, 2, 327685, 196608, 2, -589831, 65536, 0, -655355, 196608, 0, -589830, 131072, 0, -589829, 131072, 0, -589828, 131072, 0, -589827, 131072, 0, -589826, 131072, 0, -589825, 131072, 0, -655360, 131072, 0, -655359, 131072, 0, -655358, 131072, 0, -655357, 131072, 0, -655356, 131072, 0, -589819, 196608, 1, -524283, 196608, 1, -458747, 196608, 1, -393211, 196608, 1, -327675, 196608, 1, -65531, 196608, 1, 5, 196608, 1, 65541, 196608, 1, 131077, 196608, 1, 196613, 196608, 1, 262149, 196608, 1, 393210, 131072, 2, 393211, 131072, 2, 393212, 131072, 2, 393213, 131072, 2, 393214, 131072, 2, 393215, 131072, 2, 327680, 131072, 2, 327681, 131072, 2, 327682, 131072, 2, 327683, 131072, 2, 327684, 131072, 2, -524295, 65536, 1, -458759, 65536, 1, -393223, 65536, 1, -327687, 65536, 1, -262151, 65536, 1, 65529, 65536, 1, 131065, 65536, 1, 196601, 65536, 1, 262137, 65536, 1, 327673, 65536, 1, 262139, 131072, 4, -196613, 131072, 4, -458757, 131072, 3, -65541, 131072, 3, -524285, 196608, 3, -131069, 196608, 3, -262141, 196608, 4, 196610, 131072, 0, 196611, 196608, 4, 262140, 131072, 0, 262141, 131072, 0, 262142, 131072, 0, 262143, 131072, 0, 196608, 131072, 0, 196609, 131072, 0, -196612, 131072, 0, -196611, 131072, 0, -196610, 131072, 0, -196609, 131072, 0, -262144, 131072, 0, -262143, 131072, 0, -262142, 131072, 0, -458756, 131072, 2, -458755, 131072, 2, -458754, 131072, 2, -458753, 131072, 2, -524288, 131072, 2, -524287, 131072, 2, -524286, 131072, 2, -65540, 131072, 2, -65539, 131072, 2, -65538, 131072, 2, -65537, 131072, 2, -131072, 131072, 2, -131071, 131072, 2, -131070, 131072, 2, -65533, 65536, 1, 3, 65536, 1, 65539, 65536, 1, 131075, 65536, 1, -458749, 65536, 1, -393213, 65536, 1, -327677, 65536, 1, -393221, 196608, 1, -327685, 196608, 1, -262149, 196608, 1, 65531, 196608, 1, 131067, 196608, 1, 196603, 196608, 1, -7, 65536, 1, -131067, 196608, 1, -196615, 65536, 1, -5, 196608, 1, -65543, 393216, 1610612736, -131079, 458752, 1610612736)
 
 [node name="Player" parent="." unique_id=84064236 instance=ExtResource("2_7wedp")]
-position = Vector2(-71, -40)
+unique_name_in_owner = true
+position = Vector2(-97, -32)
 
 [node name="Game manager" parent="." unique_id=312203782 instance=ExtResource("3_f0bfi")]
 
@@ -25,5 +27,31 @@ position = Vector2(-71, -40)
 unique_name_in_owner = true
 position = Vector2(88, -49)
 rotation = 1.5707964
+
+[node name="Chicken" type="Node2D" parent="." unique_id=1784424011]
+
+[node name="Chicken" parent="Chicken" unique_id=1013117429 instance=ExtResource("5_l8l1v")]
+position = Vector2(60, -88)
+
+[node name="Chicken2" parent="Chicken" unique_id=970092485 instance=ExtResource("5_l8l1v")]
+position = Vector2(63, 60)
+
+[node name="Chicken3" parent="Chicken" unique_id=888556344 instance=ExtResource("5_l8l1v")]
+position = Vector2(26, 76)
+
+[node name="Chicken4" parent="Chicken" unique_id=370492080 instance=ExtResource("5_l8l1v")]
+position = Vector2(-46, 72)
+
+[node name="Chicken5" parent="Chicken" unique_id=834539752 instance=ExtResource("5_l8l1v")]
+position = Vector2(61, -16)
+
+[node name="Chicken6" parent="Chicken" unique_id=954678766 instance=ExtResource("5_l8l1v")]
+position = Vector2(69, 24)
+
+[node name="Chicken7" parent="Chicken" unique_id=992012240 instance=ExtResource("5_l8l1v")]
+position = Vector2(67, -140)
+
+[node name="Chicken8" parent="Chicken" unique_id=1644055642 instance=ExtResource("5_l8l1v")]
+position = Vector2(-43, -142)
 
 [connection signal="load_room" from="Gate" to="Game manager" method="_on_exit_load_room"]
