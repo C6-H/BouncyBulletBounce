@@ -1,6 +1,6 @@
 extends Node
 
-const ROOMS = ["res://Scenes/Rooms/l_shaped_room_1.tscn", "res://Scenes/Rooms/square_room_1.tscn", "res://Scenes/Rooms/hallways.tscn"]
+const ROOMS = ["res://Scenes/Rooms/l_shaped_room_1.tscn", "res://Scenes/Rooms/square_room_1.tscn", "res://Scenes/Rooms/hallways.tscn", "res://Scenes/Rooms/circular_shapedroom.tscn", "res://Scenes/Rooms/room_2.tscn"]
 const SPAWN = "res://Scenes/Rooms/spawn_room.tscn"
 
 
@@ -33,7 +33,11 @@ func next_room():
 		played_rooms.append(next_tag)
 	return next_tag
 
-func _on_exit_load_room() -> void:
+
+
+
+
+func _on_gate_load_room() -> void:
 	current_room += 1
 	var save = {
 		save_score = score,
@@ -42,6 +46,11 @@ func _on_exit_load_room() -> void:
 	}
 	var save_file = FileAccess.open(save_path, FileAccess.WRITE)
 	save_file.store_var(save)
+	print("saved")
 	
+	next_room()
 	var next_room = ROOMS[next_room()]
+	print("got next room")
 	get_tree().change_scene_to_file(next_room)
+	print("different room")
+	

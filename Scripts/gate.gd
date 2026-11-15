@@ -14,13 +14,13 @@ func _ready() -> void:
 # Called every frame. 'delta' is the elapsed time since the previous frame.
 func _process(delta: float) -> void:
 	if animated_sprite_2d.frame == 2:
-		animated_sprite_2d.stop()
-		collision_shape_2d.disabled = true
 		open = true
 	else:
 		collision_shape_2d.disabled = false
 
 
-func _on_body_entered(body: Node2D) -> void:
+func _on_area_entered(area: Area2D) -> void:
 	if open:
+		print("collider working")
 		emit_signal("load_room")
+		
