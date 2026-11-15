@@ -1,6 +1,10 @@
 extends Node
 
-const ROOMS = ["res://Scenes/Rooms/l_shaped_room_1.tscn", "res://Scenes/Rooms/hallways.tscn", "res://Scenes/Rooms/circular_shapedroom.tscn", "res://Scenes/Rooms/room_2.tscn"]
+const ROOMS = ["res://Scenes/Rooms/l_shaped_room_1.tscn",
+ "res://Scenes/Rooms/hallways.tscn",
+ "res://Scenes/Rooms/circular_shapedroom.tscn",
+ "res://Scenes/Rooms/room_2.tscn",
+"res://Scenes/Rooms/room_3.tscn"]
 const SPAWN = "res://Scenes/Rooms/spawn_room.tscn"
 
 
