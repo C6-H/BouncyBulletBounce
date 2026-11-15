@@ -1,0 +1,91 @@
+[gd_scene format=3 uid="uid://bfi2cory8lvc3"]
+
+[ext_resource type="FontFile" uid="uid://cmebsg07mqd7m" path="res://Assets/Slicey Heallow.otf" id="1_28flt"]
+[ext_resource type="Script" uid="uid://dbat6af12w2im" path="res://Scripts/main_menu.gd" id="1_48xlc"]
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_4fnqn"]
+bg_color = Color(0.4627719, 0.22676706, 0.002816467, 1)
+border_width_left = 8
+border_width_bottom = 8
+border_color = Color(0.2406714, 0.10631556, 0.0010457849, 1)
+corner_radius_top_left = 32
+corner_radius_top_right = 32
+corner_radius_bottom_right = 32
+corner_radius_bottom_left = 32
+shadow_size = 8
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_22vlk"]
+bg_color = Color(0.4627451, 0.22745098, 0.003921569, 1)
+border_width_left = 8
+border_width_bottom = 8
+border_color = Color(0.23921569, 0.105882354, 0, 1)
+corner_radius_top_left = 16
+corner_radius_top_right = 16
+corner_radius_bottom_right = 16
+corner_radius_bottom_left = 16
+shadow_size = 8
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_v7ihv"]
+bg_color = Color(0.4627451, 0.22745098, 0.003921569, 1)
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_f1fi5"]
+bg_color = Color(0.4627451, 0.22745098, 0.003921569, 1)
+corner_radius_top_left = 16
+corner_radius_top_right = 16
+corner_radius_bottom_right = 16
+corner_radius_bottom_left = 16
+
+[node name="Main menu" type="Control" unique_id=1289448466]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+script = ExtResource("1_48xlc")
+
+[node name="VBoxContainer" type="VBoxContainer" parent="." unique_id=1580965456]
+layout_mode = 1
+anchors_preset = 5
+anchor_left = 0.5
+anchor_right = 0.5
+offset_left = -197.25
+offset_right = 197.25
+offset_bottom = 233.0
+grow_horizontal = 2
+
+[node name="Label" type="Label" parent="VBoxContainer" unique_id=889070373]
+custom_minimum_size = Vector2(32, 32)
+layout_mode = 2
+theme_override_colors/font_color = Color(0.49261743, 0.036176816, 0.1282053, 1)
+theme_override_fonts/font = ExtResource("1_28flt")
+theme_override_font_sizes/font_size = 32
+theme_override_styles/normal = SubResource("StyleBoxFlat_4fnqn")
+text = "A 
+Bouncy Chicken
+ Murder Spree"
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="Start" type="Button" parent="VBoxContainer" unique_id=567548656]
+layout_mode = 2
+theme_override_colors/font_color = Color(0.49411765, 0.03529412, 0.12941177, 1)
+theme_override_fonts/font = ExtResource("1_28flt")
+theme_override_font_sizes/font_size = 32
+theme_override_styles/normal = SubResource("StyleBoxFlat_22vlk")
+theme_override_styles/pressed = SubResource("StyleBoxFlat_v7ihv")
+theme_override_styles/hover = SubResource("StyleBoxFlat_f1fi5")
+text = "Start"
+
+[node name="Exit" type="Button" parent="VBoxContainer" unique_id=1799267530]
+layout_mode = 2
+theme_override_colors/font_color = Color(0.49411765, 0.03529412, 0.12941177, 1)
+theme_override_fonts/font = ExtResource("1_28flt")
+theme_override_font_sizes/font_size = 32
+theme_override_styles/normal = SubResource("StyleBoxFlat_22vlk")
+theme_override_styles/pressed = SubResource("StyleBoxFlat_v7ihv")
+theme_override_styles/hover = SubResource("StyleBoxFlat_f1fi5")
+text = "Exit"
+
+[connection signal="pressed" from="VBoxContainer/Start" to="." method="_on_start_pressed"]
+[connection signal="pressed" from="VBoxContainer/Exit" to="." method="_on_exit_pressed"]

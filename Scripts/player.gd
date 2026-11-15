@@ -1,14 +1,16 @@
 extends CharacterBody2D
 var bullet_scene = preload("res://Scenes/Bullet.tscn")
 @onready var gun: Marker2D = $Gun
+@onready var reload_bar: ColorRect = $ReloadBar
+@onready var aim: Line2D = $aim
 
 
 const SPEED = 13500.0
 
 var charging = false
 @onready var reload_timer: Timer = $"Reload timer"
-var bullet_speed = 0
-
+var bullet_speed = 1000.0
+var max_bounces = 3
 var elapsed_time = 0.0
 
 func _physics_process(delta: float) -> void:
@@ -24,8 +26,14 @@ func _physics_process(delta: float) -> void:
 
 func _process(delta: float) -> void:
 	
+	if !reload_timer.is_stopped():
+		reload_bar.visible = true
+		reload_bar.material.set_shader_parameter("height", reload_timer.time_left/reload_timer.wait_time)
+	else:
+		reload_bar.visible = false
 	if Input.is_action_pressed("Shoot") and reload_timer.is_stopped():
 		charging = true
+		aimF()
 	
 	if charging == true:
 		if elapsed_time < 5.0:
@@ -36,15 +44,16 @@ func _process(delta: float) -> void:
 
 	
 	if Input.is_action_just_released("Shoot") and reload_timer.is_stopped():
-		print("shoot")
+		print(elapsed_time)
+		print(bullet_speed)
 		shoot()
 
-	if Input.is_action_just_released("Shoot"):
+	if Input.is_action_just_released("Shoot") and charging:
 		charging = false
 		if elapsed_time >= 5.0:
-			bullet_speed = elapsed_time * 500
+			bullet_speed = elapsed_time * 100
 		else:
-			bullet_speed = 2500
+			bullet_speed = 1000
 		Engine.time_scale = 1
 		elapsed_time = 0
 		
@@ -58,4 +67,27 @@ func shoot():
 	var bullet = bullet_scene.instantiate()
 	add_sibling(bullet)
 	bullet.transform = gun.global_transform
-	bullet.velocity = gun.global_transform.x * bullet_speed
+	bullet.rotation = rotation
+	bullet.speed = bullet_speed
+	bullet.velocity = Vector2(cos(rotation + PI/2), sin(rotation + PI/2)) * bullet_speed
+
+func ray_cast(from: Vector2, to: Vector2):
+	var space = get_world_2d().direct_space_state
+	var ray = PhysicsRayQueryParameters2D.create(from, to)
+	var data = space.intersect_ray(ray)
+	return data
+	
+func aimF():
+	aim.points.clear()
+	var from_pos = global_position
+	
+	var v_rotation = rotation - PI/4
+	var to_pos = global_position + 1000 * Vector2(cos(v_rotation), sin(v_rotation))
+	var points = []
+	for i in range(max_bounces):
+		points.append(ray_cast(from_pos, to_pos).get("position"))
+		print(ray_cast(from_pos, to_pos).get("position"))
+		from_pos = to_pos
+		to_pos = 1000 * Vector2(cos(v_rotation + PI/2), sin(v_rotation + PI/2))
+	aim.points = points
+	
