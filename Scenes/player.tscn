@@ -88,5 +88,8 @@ process_material = SubResource("ParticleProcessMaterial_fkybt")
 
 [node name="AudioStreamPlayer" type="AudioStreamPlayer" parent="." unique_id=67501289]
 stream = ExtResource("5_fkybt")
+volume_db = 16.687
+max_polyphony = 2
+bus = &"SFX"
 
 [connection signal="body_entered" from="Hitbox" to="." method="_on_hitbox_body_entered"]

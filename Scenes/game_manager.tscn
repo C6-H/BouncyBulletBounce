@@ -1,6 +1,14 @@
 [gd_scene format=3 uid="uid://dd3ipkork83ik"]
 
 [ext_resource type="Script" uid="uid://bltbotfbk5wsp" path="res://Scripts/game_manager.gd" id="1_oj352"]
+[ext_resource type="AudioStream" uid="uid://d2q00ceb3fnfh" path="res://Assets/Hack club music .mp3" id="2_e5fcp"]
 
 [node name="Game manager" type="Node" unique_id=312203782]
 script = ExtResource("1_oj352")
+
+[node name="AudioStreamPlayer" type="AudioStreamPlayer" parent="." unique_id=1677689132]
+stream = ExtResource("2_e5fcp")
+autoplay = true
+max_polyphony = 2
+bus = &"Musica"
+parameters/looping = true
