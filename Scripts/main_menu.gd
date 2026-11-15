@@ -1,8 +1,9 @@
 extends Control
 
+signal startgame
 
 func _on_start_pressed() -> void:
-	pass # Replace with function body.
+	emit_signal("startgame")
 
 
 
