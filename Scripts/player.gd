@@ -5,6 +5,7 @@ var bullet_scene = preload("res://Scenes/Bullet.tscn")
 @onready var aim: Line2D = $aim
 @onready var ray: RayCast2D = $RayCast2D
 @onready var gpu_particles: GPUParticles2D = $GPUParticles2D
+@onready var audio_player: AudioStreamPlayer = $AudioStreamPlayer
 
 signal dead
 
@@ -30,8 +31,11 @@ func _physics_process(delta: float) -> void:
 func _process(delta: float) -> void:
 	if charging:
 		gpu_particles.visible = true
+		audio_player.play()
+		
 	else:
 		gpu_particles.visible = false
+		audio_player.playing = false
 	
 	if !reload_timer.is_stopped():
 		reload_bar.visible = true

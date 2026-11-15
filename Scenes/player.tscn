@@ -4,6 +4,7 @@
 [ext_resource type="Texture2D" uid="uid://dlgs0pp8jj641" path="res://Assets/Player.png" id="2_cvnsp"]
 [ext_resource type="Shader" uid="uid://bv84qusjdb10y" path="res://Shaders/ReloadBar.gdshader" id="3_6t5aa"]
 [ext_resource type="Shader" uid="uid://d0hboyme45bxe" path="res://Shaders/player.gdshader" id="4_vgqql"]
+[ext_resource type="AudioStream" uid="uid://dopg646dq2srg" path="res://Assets/gun charging.mp3" id="5_fkybt"]
 
 [sub_resource type="CircleShape2D" id="CircleShape2D_22vlk"]
 radius = 11.045361
@@ -84,3 +85,6 @@ texture = SubResource("CanvasTexture_vgqql")
 lifetime = 0.02
 interp_to_end = 1.0
 process_material = SubResource("ParticleProcessMaterial_fkybt")
+
+[node name="AudioStreamPlayer" type="AudioStreamPlayer" parent="." unique_id=67501289]
+stream = ExtResource("5_fkybt")
