@@ -16,11 +16,17 @@ func _process(delta: float) -> void:
 	if animated_sprite_2d.frame == 2:
 		open = true
 	else:
-		collision_shape_2d.disabled = false
+		open = false
 
 
-func _on_area_entered(area: Area2D) -> void:
-	if open:
-		print("collider working")
+#func _on_area_entered(area: Area2D) -> void:
+	#if open:
+		#print("collider working")
+		#emit_signal("load_room")
+		#
+
+
+func _on_body_entered(body: Node2D) -> void:
+	if not body is TileMap:
 		emit_signal("load_room")
-		
+		print("leave")

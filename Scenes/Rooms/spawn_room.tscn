@@ -23,6 +23,7 @@ position = Vector2(-11, -46)
 zoom = Vector2(3, 3)
 
 [node name="Gate" parent="." unique_id=225898723 instance=ExtResource("3_jf83i")]
+unique_name_in_owner = true
 position = Vector2(-16, 40)
 rotation = 3.1415927
 

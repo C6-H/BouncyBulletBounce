@@ -22,6 +22,7 @@ position = Vector2(-71, -40)
 [node name="Game manager" parent="." unique_id=312203782 instance=ExtResource("3_f0bfi")]
 
 [node name="Gate" parent="." unique_id=225898723 instance=ExtResource("4_l8l1v")]
+unique_name_in_owner = true
 position = Vector2(88, -49)
 rotation = 1.5707964
 

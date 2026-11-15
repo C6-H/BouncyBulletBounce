@@ -27,6 +27,7 @@ unique_name_in_owner = true
 position = Vector2(-49, -101)
 
 [node name="Gate" parent="." unique_id=225898723 instance=ExtResource("3_66mpk")]
+unique_name_in_owner = true
 position = Vector2(191, 132)
 
 [node name="Chicken" parent="." unique_id=1013117429 instance=ExtResource("4_jql81")]
