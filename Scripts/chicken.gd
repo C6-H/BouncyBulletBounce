@@ -38,7 +38,6 @@ func _physics_process(_delta: float) -> void:
 func _process(_delta: float) -> void:
 	look_at(player.position)
 	sight_check()
-	print(attitude)
 	if seen:
 		if attitude == 1:
 			walk()
