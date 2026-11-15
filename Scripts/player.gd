@@ -7,6 +7,7 @@ var bullet_scene = preload("res://Scenes/Bullet.tscn")
 @onready var gpu_particles: GPUParticles2D = $GPUParticles2D
 @onready var audio_player: AudioStreamPlayer = $AudioStreamPlayer
 
+signal dead
 
 const SPEED = 13500.0
 
@@ -89,3 +90,6 @@ func ray_cast(from: Vector2, to: Vector2):
 	
 func aimF():
 	aim.points = [Vector2(0, 0), get_local_mouse_position()]
+
+func death():
+	emit_signal("dead")
