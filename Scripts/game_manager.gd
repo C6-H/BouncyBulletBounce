@@ -7,25 +7,28 @@ const SPAWN = "res://Scenes/Rooms/spawn_room.tscn"
 var score = 0
 var played_rooms = []
 var current_room = 0
+var save_path = "res://other/save_data/Save.tres"
 
-
-
-
-# Called when the node enters the scene tree for the first time.
 func _ready() -> void:
+	load_save()
 	next_room()
 
 
-# Called every frame. 'delta' is the elapsed time since the previous frame.
-func _process(_delta: float) -> void:
-	pass
+func _on_main_menu_startgame() -> void:
+	get_tree().change_scene_to_file("res://Scenes/Rooms/spawn_room.tscn")
+	var score = 0
+	var played_rooms = []
+	var current_room = 0
+	var save = {
+	save_score = score,
+	save_current_room = current_room, 
+	save_played_rooms = played_rooms
+	}
+
 
 func next_room():
 	var next_tag = -1
-	if current_room == 0:
-		# loads spawn room
-		pass
-	elif len(played_rooms) != len(ROOMS):
+	if len(played_rooms) != len(ROOMS):
 		while next_tag in played_rooms or next_tag == -1:
 			next_tag = randi_range(0, len(ROOMS))
 		played_rooms.append(next_tag)
@@ -40,4 +43,10 @@ func _on_exit_load_room() -> void:
 		save_current_room = current_room, 
 		save_played_rooms = played_rooms
 	}
+	var save_file = FileAccess.open(save_path, FileAccess.WRITE)
+	save_file.store_var(save)
 	
+func load_save():
+	if FileAccess.file_exists(save_path):
+		var save_data = FileAccess.open(save_path, FileAccess.READ)
+		var data = save_data.get_var()

@@ -17,3 +17,5 @@ offset_top = 1.0
 offset_right = 569.0
 offset_bottom = 1.0
 grow_vertical = 1
+
+[connection signal="startgame" from="Main menu" to="Game manager" method="_on_main_menu_startgame"]
