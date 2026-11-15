@@ -5,9 +5,9 @@
 [ext_resource type="PackedScene" uid="uid://bivl0byoxfj5b" path="res://Scenes/chicken.tscn" id="3_c2haw"]
 
 [sub_resource type="NavigationPolygon" id="NavigationPolygon_fr46g"]
-vertices = PackedVector2Array(256.85938, 118, 275.20313, 118, 300.70313, 136.5625, 289.60156, 140.25781, 246.4375, 132.29688, 237.14063, 123, 310, 160.17969, 345, 74.953125, 345, 233.65625, 285.54688, 231.64844, 310, 145.85938, 278.32813, 102.359375, 273.89063, 89.0625, 242.74219, 143.39844, 257.27344, 171.0625, 254.82031, 231.07813, 230, 199.1875, 230, 172, 238.39844, 147.74219, 138, 231.92188, 157.5, 197.84375, 281.82813, 148.03125, 280.6328, 177.49219, 298.77344, 165.79688, 285, 161.21094, 269.45313, 166.3125, 138, 74.03906, 246.92969, 108.07031, 226.85938, 123, 250.96094, 91.92969, 219, 130.85938, 153.20313, 172, 285, 154.35156, 224.92969, 152.22656, 219, 140.35938)
-polygons = Array[PackedInt32Array]([PackedInt32Array(0, 1, 2, 3, 4, 5), PackedInt32Array(6, 7, 8, 9), PackedInt32Array(7, 6, 10), PackedInt32Array(11, 12, 7, 10, 2), PackedInt32Array(13, 14, 15, 16, 17, 18), PackedInt32Array(1, 11, 2), PackedInt32Array(16, 15, 19, 20), PackedInt32Array(4, 3, 21, 13), PackedInt32Array(6, 9, 22, 23), PackedInt32Array(24, 23, 22, 25), PackedInt32Array(26, 27, 0, 5, 28), PackedInt32Array(26, 7, 12, 29), PackedInt32Array(26, 29, 27), PackedInt32Array(26, 28, 30, 31), PackedInt32Array(21, 32, 24, 25, 13), PackedInt32Array(13, 25, 14), PackedInt32Array(33, 18, 17), PackedInt32Array(33, 17, 31, 34), PackedInt32Array(30, 34, 31), PackedInt32Array(19, 26, 31), PackedInt32Array(19, 31, 20)])
-outlines = Array[PackedVector2Array]([PackedVector2Array(128, 242, 266, 241, 355, 244, 355, 65, 128, 64), PackedVector2Array(298, 148, 300, 150, 300, 154, 298, 155, 295, 154, 295, 152, 294, 150, 295, 149), PackedVector2Array(231, 133, 233, 133, 235, 135, 234, 138, 233, 139, 230, 140, 229, 138, 229, 135), PackedVector2Array(267, 100, 268, 103, 267, 108, 261, 108, 258, 105, 259, 101), PackedVector2Array(165, 182, 220, 182, 220, 189, 166, 188), PackedVector2Array(267, 178, 271, 182, 275, 226, 265, 227)])
+vertices = PackedVector2Array(256.85938, 118, 275.20313, 118, 300.70313, 136.5625, 289.60156, 140.25781, 246.4375, 132.29688, 237.14063, 123, 310, 160.17969, 344.9375, 71, 344.04688, 233, 285.6797, 233, 310, 145.85938, 278.32813, 102.359375, 273.89063, 89.0625, 242.74219, 143.39844, 257.27344, 171.0625, 254.75, 233, 230, 199.1875, 230, 172, 238.39844, 147.74219, 135, 233, 157.5, 197.84375, 135, 71, 153.20313, 172, 281.82813, 148.03125, 280.6328, 177.49219, 298.77344, 165.79688, 285, 161.21094, 269.45313, 166.3125, 246.92969, 108.07031, 226.85938, 123, 250.96094, 91.92969, 285, 154.35156, 224.92969, 152.22656, 219, 140.35938, 219, 130.85938)
+polygons = Array[PackedInt32Array]([PackedInt32Array(0, 1, 2, 3, 4, 5), PackedInt32Array(6, 7, 8, 9), PackedInt32Array(7, 6, 10), PackedInt32Array(11, 12, 7, 10, 2), PackedInt32Array(13, 14, 15, 16, 17, 18), PackedInt32Array(1, 11, 2), PackedInt32Array(16, 15, 19, 20), PackedInt32Array(20, 19, 21, 22), PackedInt32Array(4, 3, 23, 13), PackedInt32Array(6, 9, 24, 25), PackedInt32Array(26, 25, 24, 27), PackedInt32Array(28, 0, 5, 29), PackedInt32Array(21, 7, 12, 30), PackedInt32Array(22, 21, 30, 28, 29), PackedInt32Array(23, 31, 26, 27, 13), PackedInt32Array(13, 27, 14), PackedInt32Array(32, 18, 17), PackedInt32Array(32, 17, 22, 33), PackedInt32Array(34, 33, 22), PackedInt32Array(22, 29, 34)])
+outlines = Array[PackedVector2Array]([PackedVector2Array(125, 243, 260, 243, 354, 243, 355, 61, 125, 61), PackedVector2Array(298, 148, 300, 150, 300, 154, 298, 155, 295, 154, 295, 152, 294, 150, 295, 149), PackedVector2Array(231, 133, 233, 133, 235, 135, 234, 138, 233, 139, 230, 140, 229, 138, 229, 135), PackedVector2Array(267, 100, 268, 103, 267, 108, 261, 108, 258, 105, 259, 101), PackedVector2Array(165, 182, 220, 182, 220, 189, 166, 188), PackedVector2Array(267, 178, 271, 182, 275, 226, 265, 227)])
 
 [node name="Room" type="Node2D" unique_id=348853381]
 
@@ -24,13 +24,16 @@ position = Vector2(191, 79)
 
 [node name="Chicken" parent="." unique_id=1013117429 instance=ExtResource("3_c2haw")]
 position = Vector2(183, 215)
+rotation = 5.661848
 
 [node name="Chicken2" parent="." unique_id=1228441729 instance=ExtResource("3_c2haw")]
 position = Vector2(308, 108)
+rotation = -3.296927
 
 [node name="NavigationRegion2D" type="NavigationRegion2D" parent="." unique_id=511050492]
 position = Vector2(0, -1)
 navigation_polygon = SubResource("NavigationPolygon_fr46g")
 
 [node name="Chicken3" parent="." unique_id=492011874 instance=ExtResource("3_c2haw")]
-position = Vector2(303, 205)
+position = Vector2(306.99997, 180.99997)
+rotation = -2.3020892
