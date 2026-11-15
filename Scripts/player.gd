@@ -3,6 +3,7 @@ var bullet_scene = preload("res://Scenes/Bullet.tscn")
 @onready var gun: Marker2D = $Gun
 @onready var reload_bar: ColorRect = $ReloadBar
 @onready var aim: Line2D = $aim
+@onready var ray: RayCast2D = $RayCast2D
 
 
 const SPEED = 13500.0
@@ -34,6 +35,7 @@ func _process(delta: float) -> void:
 	if Input.is_action_pressed("Shoot") and reload_timer.is_stopped():
 		charging = true
 		aimF()
+
 	
 	if charging == true:
 		if elapsed_time < 5.0:
@@ -44,9 +46,8 @@ func _process(delta: float) -> void:
 
 	
 	if Input.is_action_just_released("Shoot") and reload_timer.is_stopped():
-		print(elapsed_time)
-		print(bullet_speed)
 		shoot()
+		aim.points = [Vector2(0, 0)]
 
 	if Input.is_action_just_released("Shoot") and charging:
 		charging = false
@@ -73,22 +74,9 @@ func shoot():
 
 func ray_cast(from: Vector2, to: Vector2):
 	var space = get_world_2d().direct_space_state
-	var ray = PhysicsRayQueryParameters2D.create(from, to)
-	var data = space.intersect_ray(ray)
+	var ray_new = PhysicsRayQueryParameters2D.create(from, to)
+	var data = space.intersect_ray(ray_new)
 	return data
 	
 func aimF():
-	aim.points.clear()
-	var points = [Vector2(0, 0)]
-	var col_pos: Vector2
-	var from_point = Vector2(0, 0)
-	var to_point = Vector2(1000, 0)
-	for i in range(max_bounces):
-		var cast = ray_cast(from_point, to_point)
-		col_pos = cast.get("position")
-		var old_from = from_point
-		from_point = to_point
-		to_point = ray_cast(from_point, from_point + 1000*(to_point - old_from).bounce(cast.get("normal"))).get("position")
-	
-		
-	
+	aim.points = [Vector2(0, 0), get_local_mouse_position()]
