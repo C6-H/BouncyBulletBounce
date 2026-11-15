@@ -3,6 +3,7 @@
 [ext_resource type="TileSet" uid="uid://coge1ar5qyb1h" path="res://other/new_tile_set.tres" id="1_dyxu8"]
 [ext_resource type="PackedScene" uid="uid://nb8tcmky3mah" path="res://Scenes/player.tscn" id="2_g3m34"]
 [ext_resource type="PackedScene" uid="uid://bivl0byoxfj5b" path="res://Scenes/chicken.tscn" id="3_c2haw"]
+[ext_resource type="PackedScene" uid="uid://dd3ipkork83ik" path="res://Scenes/game_manager.tscn" id="4_g3m34"]
 
 [sub_resource type="NavigationPolygon" id="NavigationPolygon_fr46g"]
 vertices = PackedVector2Array(256.85938, 118, 275.20313, 118, 300.70313, 136.5625, 289.60156, 140.25781, 246.4375, 132.29688, 237.14063, 123, 310, 160.17969, 344.9375, 71, 344.04688, 233, 285.6797, 233, 310, 145.85938, 278.32813, 102.359375, 273.89063, 89.0625, 242.74219, 143.39844, 257.27344, 171.0625, 254.75, 233, 230, 199.1875, 230, 172, 238.39844, 147.74219, 135, 233, 157.5, 197.84375, 135, 71, 153.20313, 172, 281.82813, 148.03125, 280.6328, 177.49219, 298.77344, 165.79688, 285, 161.21094, 269.45313, 166.3125, 246.92969, 108.07031, 226.85938, 123, 250.96094, 91.92969, 285, 154.35156, 224.92969, 152.22656, 219, 140.35938, 219, 130.85938)
@@ -37,3 +38,5 @@ navigation_polygon = SubResource("NavigationPolygon_fr46g")
 [node name="Chicken3" parent="." unique_id=492011874 instance=ExtResource("3_c2haw")]
 position = Vector2(306.99997, 180.99997)
 rotation = -2.3020892
+
+[node name="Game manager" parent="." unique_id=312203782 instance=ExtResource("4_g3m34")]

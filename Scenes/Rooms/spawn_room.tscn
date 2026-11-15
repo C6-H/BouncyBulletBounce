@@ -2,6 +2,8 @@
 
 [ext_resource type="TileSet" uid="uid://coge1ar5qyb1h" path="res://other/new_tile_set.tres" id="1_4yop0"]
 [ext_resource type="PackedScene" uid="uid://nb8tcmky3mah" path="res://Scenes/player.tscn" id="2_jf83i"]
+[ext_resource type="PackedScene" uid="uid://vor3wx5ra4un" path="res://Scenes/gate.tscn" id="3_jf83i"]
+[ext_resource type="PackedScene" uid="uid://dd3ipkork83ik" path="res://Scenes/game_manager.tscn" id="4_nj54c"]
 
 [node name="Spawn room" type="Node2D" unique_id=889006116]
 
@@ -19,3 +21,11 @@ position = Vector2(-11, -46)
 
 [node name="Camera2D2" type="Camera2D" parent="Player" unique_id=549148098]
 zoom = Vector2(3, 3)
+
+[node name="Gate" parent="." unique_id=225898723 instance=ExtResource("3_jf83i")]
+position = Vector2(-16, 40)
+rotation = 3.1415927
+
+[node name="Game manager" parent="." unique_id=312203782 instance=ExtResource("4_nj54c")]
+
+[connection signal="load_room" from="Gate" to="Game manager" method="_on_gate_load_room"]

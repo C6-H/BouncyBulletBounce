@@ -4,6 +4,7 @@ var bullet_scene = preload("res://Scenes/Bullet.tscn")
 @onready var reload_bar: ColorRect = $ReloadBar
 @onready var aim: Line2D = $aim
 @onready var ray: RayCast2D = $RayCast2D
+@onready var gpu_particles: GPUParticles2D = $GPUParticles2D
 
 
 const SPEED = 13500.0
@@ -26,6 +27,10 @@ func _physics_process(delta: float) -> void:
 
 
 func _process(delta: float) -> void:
+	if charging:
+		gpu_particles.visible = true
+	else:
+		gpu_particles.visible = false
 	
 	if !reload_timer.is_stopped():
 		reload_bar.visible = true
