@@ -1,7 +1,7 @@
 [gd_scene format=3 uid="uid://bfi2cory8lvc3"]
 
 [ext_resource type="FontFile" uid="uid://cmebsg07mqd7m" path="res://Assets/Slicey Heallow.otf" id="1_28flt"]
-[ext_resource type="Script" uid="uid://dbat6af12w2im" path="res://Scenes/main_menu.gd" id="1_48xlc"]
+[ext_resource type="Script" uid="uid://dbat6af12w2im" path="res://Scripts/main_menu.gd" id="1_48xlc"]
 
 [sub_resource type="StyleBoxFlat" id="StyleBoxFlat_4fnqn"]
 bg_color = Color(0.4627719, 0.22676706, 0.002816467, 1)

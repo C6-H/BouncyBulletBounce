@@ -1,3 +1,19 @@
 [gd_scene format=3 uid="uid://b63k4tluqr4mc"]
 
+[ext_resource type="PackedScene" uid="uid://bfi2cory8lvc3" path="res://Scenes/main_menu.tscn" id="1_ebmjs"]
+[ext_resource type="PackedScene" uid="uid://dd3ipkork83ik" path="res://Scenes/game_manager.tscn" id="1_qxrlw"]
+
 [node name="Game" type="Node2D" unique_id=716044547]
+
+[node name="Game manager" parent="." unique_id=312203782 instance=ExtResource("1_qxrlw")]
+
+[node name="Main menu" parent="." unique_id=1289448466 instance=ExtResource("1_ebmjs")]
+anchors_preset = 5
+anchor_left = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.0
+offset_left = 569.0
+offset_top = 1.0
+offset_right = 569.0
+offset_bottom = 1.0
+grow_vertical = 1
