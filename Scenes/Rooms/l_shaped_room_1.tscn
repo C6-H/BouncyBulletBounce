@@ -30,15 +30,18 @@ position = Vector2(-49, -101)
 unique_name_in_owner = true
 position = Vector2(191, 132)
 
-[node name="Chicken" parent="." unique_id=1013117429 instance=ExtResource("4_jql81")]
-position = Vector2(-95, -18)
-rotation = -0.8709193
-
-[node name="Chicken2" parent="." unique_id=1022738880 instance=ExtResource("4_jql81")]
-position = Vector2(48, 52)
-rotation = -2.9862583
-
 [node name="NavigationRegion2D" type="NavigationRegion2D" parent="." unique_id=1809429380]
 navigation_polygon = SubResource("NavigationPolygon_lm1ak")
 
 [node name="Game manager" parent="." unique_id=312203782 instance=ExtResource("5_jql81")]
+
+[node name="Chickens" type="Node2D" parent="." unique_id=402167442]
+
+[node name="Chicken" parent="Chickens" unique_id=1013117429 instance=ExtResource("4_jql81")]
+position = Vector2(-95, -18)
+rotation = -0.8709193
+scale = Vector2(0.99999994, 0.99999994)
+
+[node name="Chicken2" parent="Chickens" unique_id=1022738880 instance=ExtResource("4_jql81")]
+position = Vector2(48, 52)
+rotation = -2.9862583
