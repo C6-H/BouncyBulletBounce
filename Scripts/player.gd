@@ -69,6 +69,8 @@ func _process(delta: float) -> void:
 		elapsed_time = 0
 		
 		reload_timer.start()
+		
+	
 	
 	
 	look_at(get_global_mouse_position())
@@ -91,5 +93,12 @@ func ray_cast(from: Vector2, to: Vector2):
 func aimF():
 	aim.points = [Vector2(0, 0), get_local_mouse_position()]
 
+
+
 func death():
 	emit_signal("dead")
+
+
+func _on_hitbox_body_entered(body: Node2D) -> void:
+	if body.scene_file_path == "res://Scenes/chicken_bullet.tscn":
+		death()
