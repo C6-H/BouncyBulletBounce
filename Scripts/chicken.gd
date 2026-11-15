@@ -85,13 +85,12 @@ func _on_hurt_box_body_entered(body: Node2D) -> void:
 	if body.scene_file_path == "res://Scenes/Bullet.tscn":
 		die()
 
-		print(body)
 
 func die():
 	audio_player.play()
 	$Sprite2D.texture = preload("uid://7ca8mqqe0x8f")
 	var blood = Sprite2D.new()
-	add_sibling(blood)
+	get_parent().get_parent().add_child(blood)
 	blood.texture = preload("uid://7ca8mqqe0x8f")
 	blood.global_position = global_position
 	audio_player.play()

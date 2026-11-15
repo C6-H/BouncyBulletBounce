@@ -23,20 +23,23 @@ layer_1/tile_data = PackedInt32Array(262155, 393216, 0, 262156, 458752, 0, 26215
 unique_name_in_owner = true
 position = Vector2(191, 79)
 
-[node name="Chicken" parent="." unique_id=1013117429 instance=ExtResource("3_c2haw")]
-position = Vector2(183, 215)
-rotation = 5.661848
-
-[node name="Chicken2" parent="." unique_id=1228441729 instance=ExtResource("3_c2haw")]
-position = Vector2(308, 108)
-rotation = -3.296927
-
 [node name="NavigationRegion2D" type="NavigationRegion2D" parent="." unique_id=511050492]
 position = Vector2(0, -1)
 navigation_polygon = SubResource("NavigationPolygon_fr46g")
 
-[node name="Chicken3" parent="." unique_id=492011874 instance=ExtResource("3_c2haw")]
+[node name="Game manager" parent="." unique_id=312203782 instance=ExtResource("4_g3m34")]
+
+[node name="Chickens" type="Node2D" parent="." unique_id=1539455078]
+unique_name_in_owner = true
+
+[node name="Chicken" parent="Chickens" unique_id=1013117429 instance=ExtResource("3_c2haw")]
+position = Vector2(183, 215)
+rotation = -0.62133723
+
+[node name="Chicken2" parent="Chickens" unique_id=1228441729 instance=ExtResource("3_c2haw")]
+position = Vector2(308, 108)
+rotation = 2.9862583
+
+[node name="Chicken3" parent="Chickens" unique_id=492011874 instance=ExtResource("3_c2haw")]
 position = Vector2(306.99997, 180.99997)
 rotation = -2.3020892
-
-[node name="Game manager" parent="." unique_id=312203782 instance=ExtResource("4_g3m34")]

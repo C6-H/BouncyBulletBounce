@@ -10,8 +10,8 @@ var save_path = "res://other/save_data/Save.tres"
 var save: Dictionary
 var save_data: FileAccess
 @onready var gate = %Gate
+@onready var chickens = %Chickens
 @onready var player: CharacterBody2D = $"../Player"
-
 func load_save():
 	if FileAccess.file_exists(save_path):
 		save_data = FileAccess.open(save_path, FileAccess.READ)
@@ -36,7 +36,6 @@ func player_dead():
 	_on_main_menu_startgame()
 	
 func next_room():	
-	print("next room function")
 	var next_tag = -1
 	if len(played_rooms) != len(ROOMS):
 		while next_tag in played_rooms or next_tag == -1:
@@ -44,7 +43,12 @@ func next_room():
 		played_rooms.append(next_tag)
 	return next_tag
 
-
+func _process(delta: float) -> void:
+	if chickens:
+		print(chickens.get_child_count())
+		print(chickens.get_children())
+		if chickens.get_child_count() == 0:
+w			gate.openUp()
 
 
 
