@@ -47,9 +47,9 @@ texture = ExtResource("2_cvnsp")
 [node name="CollisionShape2D" type="CollisionShape2D" parent="." unique_id=1025652015]
 shape = SubResource("CircleShape2D_22vlk")
 
-[node name="Area2D" type="Area2D" parent="." unique_id=1375261004]
+[node name="Hitbox" type="Area2D" parent="." unique_id=1375261004]
 
-[node name="CollisionShape2D2" type="CollisionShape2D" parent="Area2D" unique_id=872222660]
+[node name="CollisionShape2D2" type="CollisionShape2D" parent="Hitbox" unique_id=872222660]
 shape = SubResource("CircleShape2D_v7ihv")
 debug_color = Color(0.989577, 0, 0.29427183, 0.41960785)
 
@@ -88,3 +88,5 @@ process_material = SubResource("ParticleProcessMaterial_fkybt")
 
 [node name="AudioStreamPlayer" type="AudioStreamPlayer" parent="." unique_id=67501289]
 stream = ExtResource("5_fkybt")
+
+[connection signal="body_entered" from="Hitbox" to="." method="_on_hitbox_body_entered"]

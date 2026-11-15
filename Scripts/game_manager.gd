@@ -48,7 +48,7 @@ func _process(delta: float) -> void:
 		print(chickens.get_child_count())
 		print(chickens.get_children())
 		if chickens.get_child_count() == 0:
-w			gate.openUp()
+			gate.openUp()
 
 
 
