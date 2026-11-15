@@ -12,7 +12,8 @@ func _ready() -> void:
 
 
 func openUp():
-	animated_sprite_2d.play("Open")
+	if animated_sprite_2d.frame != 2:
+		animated_sprite_2d.play("Open")
 
 # Called every frame. 'delta' is the elapsed time since the previous frame.
 func _process(delta: float) -> void:
