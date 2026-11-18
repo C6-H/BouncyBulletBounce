@@ -65,8 +65,7 @@ func _on_gate_load_room():
 		"save_score": score,
 		"save_played_rooms" : played_rooms
 	}
-	var save_file = FileAccess.open(save_path, FileAccess.WRITE)
-	save_file.store_var(save)
+
 	
 	print(len(ROOMS))
 	var next_room = ROOMS[next_room() - 1]
